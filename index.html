@@ -31,7 +31,15 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
-
+      let numsSumed=0
+      for(let i=0; i<nums.length; i++){
+        numsSumed=num[i] + num[i]
+      }
+      if(numsSumed=== 13){
+        return "I'm too superstitious!"
+      }else{
+        return numsSumed
+      }
     }
 
     // 👉 CHALLENGE 2
@@ -41,7 +49,27 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
+      let vowelsStripped = [];
+    let vowelYes = false;
+    let vowel = ["a", "e", "i", "o", "u"];
+    let splitString = str.split("");
 
+    for (let i = 0; i < splitString.length; i++) {
+        vowelYes = false; 
+
+        for (let v = 0; v < vowel.length; v++) {
+            if (vowel[v] === splitString[i]) {
+                vowelYes = true;
+                
+            }
+        }
+
+        if (!vowelYes) {
+            vowelsStripped.push(splitString[i]);
+        }
+    }
+
+    return vowelsStripped.join("");
     }
 
     // 👉 CHALLENGE 3
