@@ -31,15 +31,17 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
-      let numsSumed=0
+      let finalAnswer=0
       for(let i=0; i<nums.length; i++){
-        numsSumed=num[i] + num[i]
+       let answer= nums[i]
+       if(typeof answer=== "number"){
+        if(answer=== 13){
+          return "I'm too superstitious!"
+        }
+        finalAnswer+= answer
+       }
       }
-      if(numsSumed=== 13){
-        return "I'm too superstitious!"
-      }else{
-        return numsSumed
-      }
+      return finalAnswer
     }
 
     // 👉 CHALLENGE 2
@@ -77,8 +79,20 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(nums) {
+      let answer=0
+      let count=0
+      while(count<nums.length){
+        let number=nums[count]
+        if(typeof number=== "number"){
+          if(number=== 13){
+            return "I'm too superstitious!"
+          }
+          answer+= number
+        }
+        count++
+      }
+      return answer
     }
 
     // 👉 CHALLENGE 4
@@ -98,8 +112,15 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-
+    function fightMonsters(HP) {
+      let round=1
+      while(HP>0){
+        HP-= round
+        if(HP<= 0){
+          return `You died in round ${round}`
+        }
+        round++
+      }
     }
 
     // 👉 CHALLENGE 5
@@ -109,8 +130,15 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(array) {
+      let evens=[]
+      for(let i=0; i< array.length; i++){
+        let temp= array[i]
+        if(temp% 2 ===0){
+          evens.push(temp)
+        }
+      }
+      return evens
     }
 
     // 👉 CHALLENGE 6
@@ -120,8 +148,19 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
+    function separateAges(ages) {
+      let under21=[]
+      let older21=[]
+      for( let i=0; i<ages.length; i++){
+        let age= ages[i]
+        if(age<21){
+          under21.push(age)
 
+        }else{
+          older21.push(age)
+        }
+      }
+      return [under21, older21]
     }
 
     // 👉 CHALLENGE 7
@@ -131,8 +170,26 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
-
+ /*  function headAndTail(coin) {
+      let head=0
+      let tail=[]
+      
+      for(let i=0; i<coin.length; i++){
+        if(i=== 0){
+          head=coin[0]
+          
+        }else{
+          tail.push(coin)
+        }
+        
+      }
+      return {head, tail}
+    }
+*/
+    function headAndTail(coin) {
+      let head= coin[0]
+      let tail= coin.slice(1)
+      return {head, tail}
     }
 
     // 👉 CHALLENGE 8
@@ -143,7 +200,7 @@
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
     function nestedLoops() {
-
+      
     }
 
     // 👉 CHALLENGE 9
