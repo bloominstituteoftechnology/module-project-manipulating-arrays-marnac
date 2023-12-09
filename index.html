@@ -182,8 +182,7 @@
           tail.push(coin)
         }
         
-      }
-      return {head, tail}
+0      return {head, tail}
     }
 */
     function headAndTail(coin) {
@@ -199,8 +198,23 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
-      
+    function nestedLoops(strings) {
+      let result=[]
+      for(let idx in strings){
+        let word = strings[idx]
+        let modifiedWord= ""
+        for(let idx in word){
+          let char= word[idx]
+          if(char=== 'a' || char=== 'e' || char=== 'i' || char=== 'o' || char=== 'u'){
+            let upperCased= char.toUpperCase()
+            modifiedWord += upperCased
+          }else{
+            modifiedWord += char
+          }
+        }
+        result.push(modifiedWord)
+      }
+      return result
     }
 
     // 👉 CHALLENGE 9
@@ -214,7 +228,13 @@
     // 🧠 Practice using pop and slice.
     // 🧠 Note that pop modifies the original array in place and returns the "popped" element, whereas slice gives us a brand new array.
     function crazyTrimmer(arr) {
-
+      arr.pop()
+      if(arr.length %2 !== 0){
+        return arr
+      }else{
+        arr.shift()
+        return arr
+      }
     }
 
     // 🧪 TESTS, do not work below this line
